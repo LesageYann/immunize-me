@@ -4,13 +4,11 @@ class Identite
     // déclaration d'une propriété
     private $ident ;
     private $nom ;
-    private $avatar ;
     
-    public function __construct( $ident, $nom, $avatar)
+    public function __construct( $ident, $nom)
           {
 		$this->ident = $ident;
 		$this->nom = $nom;
-		$this->avatar = $avatar;
           } 
 
     // déclaration des méthodes
@@ -25,11 +23,6 @@ class Identite
     public function setNom($newNom){
 	$this->nom = $newNom;
     }
-
-    public function getAvatar() {
-	return $this->avatar;
-    }
-    
 
 }
 ?>
