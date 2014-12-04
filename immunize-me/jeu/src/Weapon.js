@@ -13,3 +13,5 @@ function _getDamage(VirusType){
     return this.damage;
 }
 Weapon.getDamage = _getDamage;
+
+
