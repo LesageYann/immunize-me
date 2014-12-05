@@ -1,6 +1,6 @@
 <?php 
-	include "site/model/Identite.class.php";
-	include "site/model/Bdd.class.php";
+	include "../model/Identite.class.php";
+	include "../model/Bdd.class.php";
 	session_start();
 	session_destroy();
 ?>

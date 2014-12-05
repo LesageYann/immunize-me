@@ -1,6 +1,6 @@
 <?php 
-	include "site/model/Identite.class.php";
-	include "site/model/Bdd.class.php";
+	include "../model/Bdd.class.php";
+	include "../model/Identite.class.php";
 	session_start();
 ?>	
 <!DOCTYPE html> 
@@ -45,7 +45,7 @@
 			$bdd_connect = new Bdd();
 			$keyword = $bdd_connect->getUser($_POST['login']);
 			if($keyword['password'] ==md5( $_POST['mdp'])){
-				$_SESSION['log']= new  Identite ($keyword['ident'], $keyword['name']*);
+				$_SESSION['log']= new  Identite ($keyword['ident'], $keyword['name']);
 				echo "<div  class=\"error\">Vous êtes bien connecté.</div>";
 			} else {	
 				echo "<div class=\"error\">Mot de passe incorrect</div></br>";
