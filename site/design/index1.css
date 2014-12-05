@@ -1,0 +1,10 @@
+body{
+    color: rgb(255,255,255);
+    font-family: 'Helvetica Neue',Helvetica, Verdana,Arial,Helvetica,sans-serif;
+    line-height: 1.4em;
+	margin : 0px;
+	background-image: url("image/background.png");
+	background-attachment:fixed;
+	margin-top: 80px;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}

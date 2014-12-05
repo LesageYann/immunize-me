@@ -10,7 +10,33 @@
 	<meta name="Autor" content="Turtle Team" />
 	<meta name="Keywords" content="Nuit, Info, PRojet, Humanitaire, Jeu, prévention"/>
 	<meta name="Description" content="Jeu de prévention contre les épidémies."/>
-	<link rel="stylesheet" type="text/css" href="../design/index.css"></link>
+	<?php
+		if($_SESSION['log']) {
+			$bdd_kona = new Bdd();
+			$kona = $bdd_kona-> getKonami($_SESSION['log']->getIdent());
+			switch ($kona) {
+				case 0:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index0.css\"></link>";
+					break;
+				case 1:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index1.css\"></link>";
+					break;
+				case 2:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index2.css\"></link>";
+					break;
+				case 3:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index3.css\"></link>";
+					break;
+				default:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index.css\"></link>";
+					break;
+			}
+		}
+		else
+		{
+			echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index.css\"></link>";
+		}
+	?>
 	<title>Immunize me !</title>
 </head>
 <body>
@@ -28,7 +54,7 @@
 			
 			<h3 id="titrejeu"> Un petit jeu ? </h3>
 			<div class="sousdiv" id="jeu">
-			
+			 <iframe src="../../immunize-me/jeu/src/index.html"></iframe> 
 			</div>
 		</div>
 		<h3> Description </h3>
@@ -40,7 +66,10 @@
 					Pour ce faire ce petit jeu propose aux enfant d'aller combattre quelques virus emblématiques tel que Ebola ou le VIH tout en récoltant des informations pour les aider à comprendre de quoi ils ont besoin pour les combattres !</br>
 				</p>
 				<h2> Controles : </h2>
-				<p> Les controles sont très simples : tout se fait à la souris. Il suffit de maintenir le clic gauche de souris pour envoyer vos attaques et bouger votre arme.</p>
+				<p> Les controles sont très simples : tout se fait à la souris. Il suffit de maintenir le clic gauche de souris pour envoyer vos attaques et bouger votre arme.</br></p>
+				<h2> Le plus :</h2>
+				<p> Participez à notre petit jeu ! Il suffit de vous créer un compte et de répondre à des petits quizz sur des maladies pour améliorer petit à petit le design du site !</br></p>
+			
 			</div>
 	</div>
 	<?php 

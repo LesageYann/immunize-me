@@ -10,7 +10,33 @@
 	<meta name="Autor" content="Turtle Team" />
 	<meta name="Keywords" content="Nuit, Info, Projet, Humanitaire, Jeu, prévention"/>
 	<meta name="Description" content="Jeu de prévention contre les épidémies."/>
-	<link rel="stylesheet" type="text/css" href="../design/index.css"></link>
+	<?php
+		if($_SESSION['log']) {
+			$bdd_kona = new Bdd();
+			$kona = $bdd_kona-> getKonami($_SESSION['log']->getIdent());
+			switch ($kona) {
+				case 0:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index0.css\"></link>";
+					break;
+				case 1:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index1.css\"></link>";
+					break;
+				case 2:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index2.css\"></link>";
+					break;
+				case 3:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index3.css\"></link>";
+					break;
+				default:
+					echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index.css\"></link>";
+					break;
+			}
+		}
+		else
+		{
+			echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"../design/index.css\"></link>";
+		}
+	?>
 <title>Inscription Immunize-Me</title> 
 </head>
 <body>
