@@ -7,7 +7,7 @@ class Bdd
     public function __construct()
 	{    
 		try {
-			$this->connexion = new PDO("pgsql:host=localhost;dbname=postgres",'jecisc','genji1&2');
+			$this->connexion = new PDO("pgsql:host=localhost;dbname=postgres",'postgres','genji1&2');
 		}catch (PDOException $e){
 			echo "erreur connexion" . $e->getMessage() ;
 			exit();

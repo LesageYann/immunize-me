@@ -1,6 +1,6 @@
 <?php
-	include "site/model/Identite.class.php";
-	include "site/model/Bdd.class.php";
+	include "../model/Identite.class.php";
+	include "../model/Bdd.class.php";
 	session_start();
 ?>
 <!DOCTYPE html> 
@@ -10,7 +10,6 @@
 	<meta name="Autor" content="Turtle Team" />
 	<meta name="Keywords" content="Nuit, Info, PRojet, Humanitaire, Jeu, prévention"/>
 	<meta name="Description" content="Jeu de prévention contre les épidémies."/>
-	<meta http-equiv="refresh" content="5; index.php" />
 	<link rel="stylesheet" type="text/css" href="../design/index.css"></link>
 	<title>Votre profil Immunize-Me</title> 
 </head>

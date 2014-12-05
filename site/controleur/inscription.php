@@ -1,6 +1,6 @@
 <?php
-	include "../site/model/Bdd.class.php";
-	include "../site/model/Identite.class.php";
+	include "../model/Bdd.class.php";
+	include "../model/Identite.class.php";
 	session_start();
 ?>
 <!DOCTYPE html> 
@@ -43,6 +43,7 @@
 		else
 		{	
 			if (isset($_POST['login']) && isset($_POST['mail']) && isset($_POST['mdp'])&& isset($_POST['mdp2'])){
+					//on test si le mail est bon.
 					if(preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/',$_POST['mail'])){
 						if($_POST['mdp2'] == $_POST['mdp']) {
 							//on test si le login et le mdp ont un format correct
@@ -54,7 +55,7 @@
 									print_form();
 								}else{
 									//faire l'inscription
-									$bdd_connect->ajouterUtilisateur($_POST['login'],md5($_POST['mdp'], $_POST['mail']));
+									$bdd_connect->ajouterUtilisateur($_POST['login'],md5($_POST['mdp']), $_POST['mail']);
 									echo "<div  class=\"error\"> Vous êtes bien inscrit. </div>";
 								}
 							}else{
@@ -68,6 +69,7 @@
 					}
 					else{	
 						echo"<div class=\"error\">Le mail est invalide.</div>";	
+							print_form();
 						}
 			}else {
 				print_form();
