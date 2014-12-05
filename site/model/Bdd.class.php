@@ -27,8 +27,8 @@ class Bdd
 	//Ajoute un nouvel utilisateur.
 	public function ajouterUtilisateur( $id, $mdp, $mail){
 		$stmt = $this->connexion->prepare(
-			"INSERT INTO users (ident, password, mail)
-			 VALUES (:name, :mdp, :mail)");
+			"INSERT INTO users (ident, password, mail, konami)
+			 VALUES (:name, :mdp, :mail, 0)");
 		$stmt->bindValue(':name', $id, PDO::PARAM_STR);
 		$stmt->bindValue(':mdp', $mdp, PDO::PARAM_STR);
 		$stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
@@ -68,6 +68,23 @@ class Bdd
 	$stmt = $this->connexion->prepare(
 		"UPDATE users SET password=:password  WHERE ident=:ident");
 	$stmt->bindParam(':password', $mdp, PDO::PARAM_STR);
+	$stmt->bindValue(':ident', $id, PDO::PARAM_STR);
+	$stmt->execute();	
+    }
+	
+	//Recupere un Konami
+	public function getKonami($id){
+		$stmt = $this->connexion->prepare(
+			"SELECT konami FROM users WHERE ident=:ident");
+		$stmt->bindValue(':ident', $id, PDO::PARAM_STR);
+		$stmt->execute();
+		$tmp = $stmt->fetch(PDO::FETCH_ASSOC);
+		return $tmp['konami'];
+    }
+	
+    public function incKonami($id){
+	$stmt = $this->connexion->prepare(
+		"UPDATE users SET konami=konami + 1 WHERE ident=:ident");
 	$stmt->bindValue(':ident', $id, PDO::PARAM_STR);
 	$stmt->execute();	
     }
